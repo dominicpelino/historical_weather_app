@@ -84,7 +84,7 @@ export const Home = ( props:Props) => {
                         <NavA to="/">Home</NavA>
                     </li>
                     <li>
-                        <NavA to="/dashboard">Dashboard</NavA>
+                        <NavA to="/about">About</NavA>
                     </li>
                     <li>
                         <SignInText/>
@@ -94,8 +94,9 @@ export const Home = ( props:Props) => {
             <Main>
                 <MainText>
                     <h1>{props.title}</h1>
-                    <p>All the Weather. All the time. For you.</p>
-                    <Button color='primary' variant='contained' component={Link} to='/dashboard'>See your Weather</Button>
+                    <p>All the Weather.</p>
+                    <p>All the time.</p>
+                    <p>For you.</p>
                 </MainText>
             </Main>
 

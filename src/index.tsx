@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { Home, Dashboard, SignIn } from './components';
+import { Home, AboutPage, SignIn, NewDash} from './components';
 import './styles.css';
 import { theme } from './Theme/themes'
 import { ThemeProvider } from "@mui/material/styles";
@@ -24,9 +24,10 @@ root.render(
         <ThemeProvider theme = {theme}>
           <Router>
             <Routes>
-              <Route path="/" element = { <Home title = {'Gestra -- Yesterdays Weather, Today.'}/>}/>
-              <Route path="/dashboard" element = { <Dashboard />}/>
+              <Route path="/" element = { <Home title = {"Gestra -- Yesterday's Weather, Today."}/>}/>
+              <Route path="/dashboard" element = { <NewDash />}/>
               <Route path="/signin" element = { <SignIn />}/>
+              <Route path="/about" element = { <AboutPage/>}/>
             </Routes>
           </Router>
         </ThemeProvider>

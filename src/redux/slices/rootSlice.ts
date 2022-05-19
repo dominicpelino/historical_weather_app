@@ -7,7 +7,7 @@ const rootSlice = createSlice({
         city: "Skamania",
         state: "Washington",
         latitude: '46.19021',
-        longitude: '122.18976',
+        longitude: '-122.18976',
         description: 'National Volcanic Monument',
     },
     reducers: {

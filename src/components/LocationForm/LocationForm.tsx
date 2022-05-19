@@ -54,27 +54,27 @@ export const LocationForm = (props:LocationFormProps) => {
             <form onSubmit = {handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="name">Location Name</label>
-                    <Input {...register('name')} name="name" placeholder='Name' />
+                    <Input {...register('name')} name="name" placeholder='St Helens Area' />
                 </div>
                 <div>
                     <label htmlFor="city">City</label>
-                    <Input {...register('city')} name="city" placeholder="City"/>
+                    <Input {...register('city')} name="city" placeholder="Skamia"/>
                 </div>
                 <div>
                     <label htmlFor="state">State</label>
-                    <Input {...register('state')} name="state" placeholder="State"/>
+                    <Input {...register('state')} name="state" placeholder="Washington"/>
                 </div>
                 <div>
                     <label htmlFor="latitude">Latitude</label>
-                    <Input {...register('latitude')} name="latitude" placeholder="Latitude"/>
+                    <Input {...register('latitude')} name="latitude" placeholder="46.19021"/>
                 </div>
                 <div>
                     <label htmlFor="longitude">Longitude</label>
-                    <Input {...register('longitude')} name="longitude" placeholder="Longitude"/>
+                    <Input {...register('longitude')} name="longitude" placeholder="-122.47328"/>
                 </div>
                 <div>
                     <label htmlFor="description">Description</label>
-                    <Input {...register('description')} name="description" placeholder="Description"/>
+                    <Input {...register('description')} name="description" placeholder="Favorite Backpacking Spot"/>
                 </div>
                 <Button type='submit'>Submit</Button>
             </form>

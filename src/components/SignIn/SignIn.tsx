@@ -73,8 +73,8 @@ const GoogleButton = (props:buttonProps) =>{
         const response = await signInWithGoogle();
         
         if (user){
-            navigate('/dashboard')
         }
+        navigate('/dashboard')
     }
 
     const signUsOut = async () =>{

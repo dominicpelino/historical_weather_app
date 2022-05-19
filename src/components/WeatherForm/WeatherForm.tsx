@@ -6,75 +6,77 @@ import { Input } from '../sharedComponents/Input';
 import { weatherCalls } from '../../api';
 import { useGetData } from '../../custom-hooks';
 
-export interface LocationFormInput {
-    latitude: string;
-    longitude: string;
-}
-
 export interface WeatherResponseData {
     current: {
-        feelslike: number;
         temperature: number;
         humidity: number;
         precip: number;
         visibility: number; 
         weather_description: string[0];
-        weather_icons: string[0];
         wind_dir: string;
         wind_speed: number;
-    }
+    },
+    historical: {
+        [0]: {
+            date: string;
+            hourly: {
+                [0]: {
+                    temperature: number;
+                    humidity: number;
+                    precip: number;
+                    visibility: number; 
+                    weather_description: string[0];
+                    wind_dir: string;
+                    wind_speed: string;
+                },
+            }
+            maxtemp: number;
+            mintemp: number;
+            avgtemp: number;
+            uv_index: number;
+        }
+    },
     location: {
         name: string;
         region: string;
     }
+};
+
+export interface PhotoResponseData {
+    urls: {
+        thumb: string;
+    }
+};
+
+interface Props {
+    onSubmitHandler: (data: any, event : any)=>Promise<void>
 }
 
-
-
-export const WeatherForm = () => {
+export const WeatherForm = ({onSubmitHandler}: Props) => {
     const { register, handleSubmit } = useForm({})
-
-    const [ weatherData, setWeatherData ] = useState< WeatherResponseData | null>(null);
-
-    const onSubmit = async (data:any, event:any) => {
-        const response = await weatherCalls.getCurrent(data.latitude, data.longitude)
-            .then(response => {
-                setWeatherData(response)
-                console.log({response});
-            });
-    }
-
+    
     return (
         <div>
-            <form onSubmit = {handleSubmit(onSubmit)}>
+            <h3>Search Weather</h3>
+            <form onSubmit = {handleSubmit(onSubmitHandler)}>
+                <div>
+                    <label htmlFor="date">Date</label>
+                    <Input {...register('date')} name="date" placeholder="2022-01-21"/>
+                </div>
                 <div>
                     <label htmlFor="latitude">Latitude</label>
-                    <Input {...register('latitude')} name="latitude" placeholder="Latitude"/>
+                    <Input {...register('latitude')} name="latitude" placeholder="47.24636"/>
                 </div>
                 <div>
                     <label htmlFor="longitude">Longitude</label>
-                    <Input {...register('longitude')} name="longitude" placeholder="Longitude"/>
+                    <Input {...register('longitude')} name="longitude" placeholder="-122.47328"/>
+                </div>
+                <div>
+                    <label htmlFor="name">Name</label>
+                    <Input {...register('name')} name="name" placeholder="North Cascades"/>
                 </div>
                 <Button type='submit'>Submit</Button>
             </form>
-             
-            <div>
-                <h1>{`${weatherData?.location.name}, ${weatherData?.location.region}`}</h1>
-                <div id="text-block">
-                    <p>FEELS LIKE: {`${weatherData?.current.feelslike}`} °F</p>
-                    <p>TEMPERATURE: {`${weatherData?.current.temperature}`} °F</p>
-                    <p>HUMIDITY: {`${weatherData?.current.humidity}`} °F</p>
-                    <p>PRECIPITATION: {`${weatherData?.current.precip}`} IN</p>
-                    <p>VISIBILITY: {`${weatherData?.current.visibility}`}</p>
-                    <p>DESCRIPTION: {`${weatherData?.current.weather_description}`}</p>
-                    <p>WIND DIRECTION: {`${weatherData?.current.wind_dir}`}</p>
-                    <p>WIND SPEED: {`${weatherData?.current.wind_speed}`}</p>
-                </div>
-            </div>
-            
         </div>
     )
 };
-
-
-// weatherData?.current ? <p>{`${weatherData?.current?.temperature}`}</p> : null

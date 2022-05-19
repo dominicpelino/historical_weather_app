@@ -13,7 +13,7 @@ import {
 import { LocationForm } from '../../components'; 
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'id', headerName: 'ID', width: 75 },
   {
     field: 'name',
     headerName: 'Name',
@@ -42,7 +42,7 @@ const columns: GridColDef[] = [
   {
     field: 'description',
     headerName: 'Description',
-    width: 150,
+    width: 250,
   },
 ];
 
@@ -75,14 +75,14 @@ export const DataTable =  () => {
   
   return (
     <div style={{ height: 400, width: '100%' }}>
-    <h2>Location Inventory</h2>
+    <h2>Favorite Locations</h2>
     <DataGrid 
-        rows={locationData} 
-        columns={columns} 
-        pageSize={5} 
-        checkboxSelection 
-        onSelectionModelChange = {(newSelectionModel) => {setData(newSelectionModel);}}
-        {...locationData}  
+      rows={locationData} 
+      columns={columns} 
+      pageSize={5} 
+      checkboxSelection 
+      onSelectionModelChange = {(newSelectionModel) => {setData(newSelectionModel);}}
+      {...locationData} 
     />
 
     <Button onClick={handleOpen} color="primary">Update</Button>
@@ -92,7 +92,7 @@ export const DataTable =  () => {
     <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
     <DialogTitle id="form-dialog-title">Update a Location</DialogTitle>
     <DialogContent>
-        <DialogContentText>Update Location id: {gridData[0]}</DialogContentText>
+        <DialogContentText>Location id: {gridData[0]}</DialogContentText>
         <LocationForm id={`${gridData[0]}`}/>
     </DialogContent>
     <DialogActions>

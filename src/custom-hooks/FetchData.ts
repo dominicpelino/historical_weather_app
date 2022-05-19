@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { serverCalls } from '../api';
+import { serverCalls, weatherCalls } from '../api';
 
 export const useGetData = () => {
     const [locationData, setData] = useState<any>([]);
@@ -16,3 +16,18 @@ export const useGetData = () => {
 
     return {locationData, getData:handleDataFetch}
 }
+
+// export const useGetWeatherData = () => {
+//     const [weatherData, setWeatherData] = useState<any>([]);
+
+//     async function handleDataFetch(){
+//         const result = await weatherCalls.getWeather();
+//         setWeatherData(result)
+//     }
+
+//     useEffect( () => {
+//         handleDataFetch();
+//     }, [])
+
+//     return {weatherData, getData:handleDataFetch}
+// }
