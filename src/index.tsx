@@ -4,8 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Home, AboutPage, SignIn, NewDash} from './components';
 import './styles.css';
-import { theme } from './Theme/themes'
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 import { FirebaseAppProvider } from 'reactfire'; 
@@ -16,6 +15,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const theme = createTheme({
+    palette: {
+    mode: 'dark'
+    }
+  })
 
 root.render(
   <React.StrictMode>

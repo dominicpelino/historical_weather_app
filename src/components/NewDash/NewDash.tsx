@@ -107,6 +107,7 @@ export const NewDash= () => {
     const [ weatherData, setWeatherData ] = useState< WeatherResponseData | null>(null);
     const [ photoData, setPhotoData ] = useState< PhotoResponseData | null>(null);
 
+
     const onSubmit = async (data:any, event:any) => {
 
         await weatherCalls.getWeather(data.latitude, data.longitude, data.date)
@@ -282,7 +283,8 @@ export const NewDash= () => {
 {/* DataTable */}
                       <Grid item xs={12}>
                           <Paper 
-                              sx={{ p: 2, 
+                              sx={{ 
+                                p: 2, 
                               display: 'flex', 
                               flexDirection: 'column', 
                               height: 500,

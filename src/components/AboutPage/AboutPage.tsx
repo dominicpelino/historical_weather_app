@@ -83,7 +83,7 @@ export const AboutPage = () => {
         </Toolbar>
       </AppBar>
       <main>
-        {/* Hero unit */}
+{/* Hero unit */}
         <Box
           sx={{
             bgcolor: 'background.paper',
@@ -103,15 +103,17 @@ export const AboutPage = () => {
 
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
                 Gestra is a weather application with the ability to not only deliver
-                current and forecasted weather; but historical weather data as well. 
+                current weather; but historical weather data as well. 
                 <br></br><br></br>
                 At Gestra we know that current trail conditions can be misleading
                 for those seeking adventure. 
                 <br></br><br></br>
-                It may be sunny; but riddled with mudslides from days past.
+                It may be sunny; but the trail can be degraded from recent rainfall.
                 <br></br><br></br>
                 There may be blue skies and fresh pow; 
-                but also a sheet of ice beneath from a recent melt-freeze cycle.
+                but a sheet of ice can hide beneath from a recent melt-freeze cycle.
+                <br></br><br></br>
+                Be prepared. Go Gestra.
             </Typography>
 
             <Stack
@@ -127,21 +129,21 @@ export const AboutPage = () => {
         </Box>
 
       </main>
-      {/* Footer */}
+{/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Contact
         </Typography>
         <Typography
           variant="subtitle1"
           align="center"
           color="text.secondary"
           component="p">
-          Something here to give the footer a purpose!
+          domp@gestra.mail.com | 1-800-555-5555
         </Typography>
         <Copyright />
       </Box>
-      {/* End footer */}
+{/* End footer */}
     </ThemeProvider>
   );
 };

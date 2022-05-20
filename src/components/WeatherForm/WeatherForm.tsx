@@ -9,37 +9,38 @@ import { useGetData } from '../../custom-hooks';
 export interface WeatherResponseData {
     current: {
         temperature: number;
-        humidity: number;
-        precip: number;
-        visibility: number; 
-        weather_description: string[0];
-        wind_dir: string;
+        weather_descriptions: string[];
         wind_speed: number;
+        wind_dir: string;
+        precip: number;
+        humidity: number;
+        visibility: number; 
     },
     historical: {
-        [0]: {
-            date: string;
-            hourly: {
-                [0]: {
-                    temperature: number;
-                    humidity: number;
-                    precip: number;
-                    visibility: number; 
-                    weather_description: string[0];
-                    wind_dir: string;
-                    wind_speed: string;
-                },
-            }
-            maxtemp: number;
-            mintemp: number;
-            avgtemp: number;
-            uv_index: number;
+        [key: string]:{
+        mintemp: number;
+        maxtemp: number;
+        avgtemp: number;
+        uv_index: number;
+        hourly: Hourly[];
         }
-    },
+    }
     location: {
         name: string;
         region: string;
     }
+};
+
+
+
+export interface Hourly {
+        temperature: number;
+        wind_speed: string;
+        wind_dir: string;
+        weather_descriptions: string[];
+        precip: number;
+        humidity: number;
+        visibility: number; 
 };
 
 export interface PhotoResponseData {
