@@ -46,7 +46,8 @@ const signinStyles = {
         fontSize: '2em'
     },
     containerStyle: {
-        marginTop: '2em'
+        marginTop: '2em',
+        backgroundColor: '',
     },
     snackBar: {
         color: 'white',

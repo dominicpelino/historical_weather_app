@@ -7,10 +7,7 @@ export const weatherCalls = {
     getWeather: async (latitude: string, longitude: string, date: string) => {
         const response = await fetch(
             `https://api.weatherstack.com/historical?access_key=${weatherKey}&query=${latitude},${longitude}&historical_date=${date}&hourly=1&interval=12&units=f`,{
-            method: 'GET',
-            headers: {
-                'Content-Type': 'json'
-            }
+            method: 'GET'
         });
 
         if (!response.ok){
@@ -22,10 +19,7 @@ export const weatherCalls = {
     getPhoto: async (name: string,) => {
         const response = await fetch(
             `https://api.unsplash.com/photos/random?query=${name}&orientation=landscape&client_id=${unsplashKey}`,{
-            method: 'GET',
-            headers: {
-                'Content-Type': 'json'
-            }
+            method: 'GET'
         });
 
         if (!response.ok){
